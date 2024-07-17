@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <style>
+        h1{
+         font-size: 200%;
+         color: rgb(75, 13, 132);
+         margin-left: 200px;
+        }
+         table{
+             margin-top: 50px;
+             margin-left: 50px;
+             float: left;
+             padding-right: 50px;
+         }
+         td{
+             border: 2px solid blue;
+             width: 150px;
+             height: 150px;
+             background-color: rgb(97, 84, 246);
+             text-align: center;
+             font-family: Verdana, Geneva, Tahoma, sans-serif;
+             font-size: 400%;
+             color: #0398fc;
+         }
+         h2{
+             padding-top: 50px;
+             font-size: 200%;
+             color: rgb(20, 20, 85);
+         }
+         button, input{
+
+             width: 100%;
+             height: 100%;
+            border: 1px blue;
+             background-color: rgb(97, 84, 246);
+             text-align: center;
+               font-size: 150%;
+               font-family: monospace;
+ font-weight: 700;
+  color: #fcf803;
+         }
+         span{
+             visibility: hidden;
+         }
+
+    </style>
+
+    <title>TicTacToe</title>
+</head>
+<body style="background-color: powder blue;">
+
+<h1>Tic-Tac-Toe</h1>
+<h2 th:text="${gameDTO.demoText}"></h2>
+
+
+<table>
+
+
+    <tr>
+        <form id="form1" action="/game1" method="post"></form>
+        <td>
+            <button type="submit" form="form1" id="field1" name="field1" value="" onclick="btn1()"
+                    th:text="${stateField1}" th:field="${gameDTO.field1}"></button>
+        </td>
+
+        <form id="form2" action="/game2" method="post"></form>
+        <td>
+            <button type="submit" form="form2" id="field2" name="field2" value="" onclick="btn2()"
+                    th:text="${stateField2}" th:field="${gameDTO.field2}"></button>
+        </td>
+        <form id="form3" action="/game3" method="post"></form>
+        <td>
+            <button type="submit" form="form3" id="field3" name="field3" value="" onclick="btn3()"
+                    th:text="${stateField3}" th:field="${gameDTO.field3}"></button>
+        </td>
+
+
+    </tr>
+
+    <tr>
+        <form id="form4" action="/game4" method="post"></form>
+        <td>
+            <button type="submit" form="form4" id="field4" name="field4" value="" onclick="btn4()"
+                    th:text="${stateField4}" th:field="${gameDTO.field4}"></button>
+        </td>
+        <form id="form5" action="/game5" method="post"></form>
+        <td>
+            <button type="submit" form="form5" id="field5" name="field5" value="" onclick="btn5()"
+                    th:text="${stateField5}" th:field="${gameDTO.field5}"></button>
+        </td>
+        <form id="form6" action="/game6" method="post"></form>
+        <td>
+            <button type="submit" form="form6" id="field6" name="field6" value="" onclick="btn6()"
+                    th:text="${stateField6}" th:field="${gameDTO.field6}"></button>
+        </td>
+    </tr>
+
+    <tr>
+        <form id="form7" action="/game7" method="post"></form>
+        <td>
+            <button type="submit" form="form7" id="field7" name="field7" value="" onclick="btn7()"
+                    th:text="${stateField7}" th:field="${gameDTO.field7}"></button>
+        </td>
+        <form id="form8" action="/game8" method="post"></form>
+        <td>
+            <button type="submit" form="form8" id="field8" name="field8" value="" onclick="btn8()"
+                    th:text="${stateField8}" th:field="${gameDTO.field8}"></button>
+        </td>
+        <form id="form9" action="/game9" method="post"></form>
+        <td>
+            <button type="submit" form="form9" id="field9" name="field9" value="" onclick="btn9()"
+                    th:text="${stateField9}" th:field="${gameDTO.field9}"></button>
+        </td>
+    </tr>
+</table>
+
+<h2 th:text="${playerText}">
+    Na ťahu je hráč x
+</h2>
+
+
+<button type="button" onclick="alert('Hello')">Hello</button>
+<button type="button">Clicker</button>
+
+
+<script>
+    let state = "x";
+
+let actualSymbol = "[[${message}]]";
+
+
+       function symbol(){
+        if(actualSymbol === "x"){
+            actualSymbol = "o";
+           return "x";
+
+        }else if (actualSymbol === "o"){
+            actualSymbol = "x";
+            return"o";
+        }
+    }
+
+
+
+ function btn1(){
+ document.getElementById("field1").innerHTML=symbol();
+            let btnText1 = document.getElementById("field1").innerText;
+            document.getElementById("field1").value=btnText1;
+            console.log(btnText1);
+console.log("Variable from Spring> ", actualSymbol);
+
+        }
+function btn2(){
+
+document.getElementById("field2").innerHTML=symbol();
+            let btnText2 = document.getElementById("field2").innerText;
+            document.getElementById("field2").value=btnText2;
+            console.log(btnText2);
+
+
+        }
+function btn3(){
+            document.getElementById("field3").innerHTML = symbol();
+            let btnText3 = document.getElementById("field3").innerText;
+            document.getElementById("field3").value=btnText3;
+            console.log(btnText3);
+
+        }
+
+        function btn4(){
+            document.getElementById("field4").innerHTML = symbol();
+            let btnText4 = document.getElementById("field4").innerText;
+            document.getElementById("field4").value = btnText4;
+            console.log(btnText4);
+
+        }
+
+
+        function btn5(){
+            document.getElementById("field5").innerHTML = symbol();
+            let btnText5 = document.getElementById("field5").innerText;
+            document.getElementById("field5").value = btnText5;
+            console.log(btnText5);
+
+        }
+
+        function btn6(){
+            document.getElementById("field6").innerHTML = symbol();
+            let btnText6 = document.getElementById("field6").innerText;
+            document.getElementById("field6").value=btnText6;
+            console.log(btnText6);
+        }
+
+    function btn7(){
+            document.getElementById("field7").innerHTML = symbol();
+            let btnText7 = document.getElementById("field7").innerText;
+            document.getElementById("field7").value=btnText7;
+            console.log(btnText6);
+        }
+
+    function btn8(){
+            document.getElementById("field8").innerHTML = symbol();
+            let btnText8 = document.getElementById("field8").innerText;
+            document.getElementById("field8").value=btnText8;
+            console.log(btnText6);
+        }
+    function btn9(){
+            document.getElementById("field9").innerHTML = symbol();
+            let btnText9 = document.getElementById("field9").innerText;
+            document.getElementById("field9").value=btnText9;
+            console.log(btnText9);
+        }
+
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <style>
+        h1{
+         font-size: 200%;
+         color: rgb(75, 13, 132);
+         margin-left: 200px;
+        }
+         table{
+             margin-top: 50px;
+             margin-left: 50px;
+             float: left;
+             padding-right: 50px;
+         }
+         td{
+             border: 2px solid blue;
+             width: 150px;
+             height: 150px;
+             background-color: rgb(97, 84, 246);
+             text-align: center;
+             font-family: Verdana, Geneva, Tahoma, sans-serif;
+             font-size: 400%;
+             color: #0398fc;
+         }
+         h2{
+             padding-top: 50px;
+             font-size: 200%;
+             color: rgb(20, 20, 85);
+         }
+         button, input{
+
+             width: 100%;
+             height: 100%;
+            border: 1px blue;
+             background-color: rgb(97, 84, 246);
+             text-align: center;
+               font-size: 150%;
+               font-family: monospace;
+ font-weight: 700;
+  color: #fcf803;
+         }
+         span{
+             visibility: hidden;
+         }
+
+    </style>
+
+    <title>TicTacToe</title>
+</head>
+<body style="background-color: powder blue;">
+
+<h1>Tic-Tac-Toe</h1>
+<h2 th:text="${gameDTO.demoText}"></h2>
+<form method="post" action="/game/hallo">
+    <input type="text" id="msg" name="msg" th:field="${gameDTO.msg}">
+    <input type="submit">
+</form>
+
+<table>
+    <tr>
+
+        <td>
+
+            <button type="submit" id="field1" name="field1" th:text="${stateField1}" onclick="function1()"></button>
+
+        </td>
+
+
+        <td>
+            <button id="field2" name="field1" value="before" th:field="${field2}"></button>
+        </td>
+
+        <td>
+            <button id="field3" name="field3" value="before" th:field="${field3}"></button>
+        </td>
+
+
+    </tr>
+
+    <tr>
+        <td>
+            <button id="field4"></button>
+        </td>
+        <td>
+            <button id="field5"></button>
+        </td>
+        <td>
+            <button id="field6"></button>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <button id="field7"></button>
+        </td>
+        <td>
+            <button id="field8"></button>
+        </td>
+        <td>
+            <button id="field9"></button>
+        </td>
+    </tr>
+</table>
+
+<h2 th:text="${playerText}">
+    Na ťahu je hráč x
+</h2>
+
+
+<button type="button" onclick="alert('Hello')">Hello</button>
+<button type="button">Clicker</button>
+
+
+<script>
+    let actualSymbol = "x";
+       function symbol(){
+        if(actualSymbol === "x"){
+            actualSymbol = "o";
+           return "x";
+
+        }else if (actualSymbol === "o"){
+            actualSymbol = "x";
+            return"o";
+        }
+    }
+
+    function function1(){
+            document.getElementById("field1").innerHTML = symbol();
+            let btnText = document.getElementById("field1").innerText;
+            console.log(btnText);
+
+        }
+        document.getElementById("field2").onclick = function(){
+            document.getElementById("field2").innerHTML = symbol();
+
+        }
+        document.getElementById("field3").onclick = function(){
+            document.getElementById("field3").innerHTML = symbol();
+
+        }
+
+
+
+        document.getElementById("field4").onclick = function(){
+            document.getElementById("field4").innerHTML = symbol();
+      document.getElementById("field4").value = symbol()
+        }
+
+        document.getElementById("field5").onclick = function(){
+            document.getElementById("field5").innerHTML = symbol();
+
+        }
+        document.getElementById("field6").onclick = function(){
+            document.getElementById("field6").innerHTML = symbol();
+
+        }
+        document.getElementById("field7").onclick = function(){
+            document.getElementById("field7").innerHTML = symbol();
+
+        }
+        document.getElementById("field8").onclick = function(){
+            document.getElementById("field8").innerHTML = symbol();
+
+        }
+        document.getElementById("field9").onclick = function(){
+            document.getElementById("field9").innerHTML = symbol();
+
+        }
+
+</script>
+</body>
+
+</html>
