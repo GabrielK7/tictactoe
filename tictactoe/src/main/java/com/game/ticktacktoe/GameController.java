@@ -47,7 +47,7 @@ private String actualValue = "x";
         model.addAttribute("demoData", getArray());
         model.addAttribute("demoText", gameDTO.getDemoText());
         model.addAttribute("actualData", gameState.getActualData());
-        gameDTO.setDemoText("Game in process...");
+        
         if(!winnerCheckService.threeInRow() && !winnerCheckService.threeInColumn() &&
         !winnerCheckService.threeInDiagonal()){
             gameDTO.setDemoText("Game started...");
