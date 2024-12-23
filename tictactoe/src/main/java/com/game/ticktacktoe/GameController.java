@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class GameController {
 
-    @Autowired
+   @Autowired
     private WinnerCheckService winnerCheckService;
 
     private GameState gameState;
@@ -50,9 +50,9 @@ private String actualValue = "x";
         gameDTO.setDemoText("Game in process...");
         if(!winnerCheckService.threeInRow() && !winnerCheckService.threeInColumn() &&
         !winnerCheckService.threeInDiagonal()){
-            gameDTO.setDemoText("Game in process...");
+            gameDTO.setDemoText("Game started...");
         }else {
-            gameDTO.setDemoText("Game over!!! Winner is found....");
+            gameDTO.setDemoText("Game over!!! Winner is: " + winnerCheckService.getWinner());
         }
         return "home/index";
     }
@@ -148,6 +148,7 @@ actualValue = (actualValue.equals("x")) ? "o" : "x";
         testData.add(gameDTO2);
         return testData;
     }
+
 
 
 }
